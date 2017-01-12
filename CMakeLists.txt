@@ -5,8 +5,6 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-fPIC")
 set(CMAKE_AUTOMOC ON)
 
-
-
 set(ARTOOLKIT5_ROOT $ENV{ARTOOLKIT5_ROOT})
 set(OSG_ROOT $ENV{OSG_ROOT})
 set(QT_ROOT $ENV{QT_ROOT})
@@ -24,15 +22,13 @@ set(DCMAKE_BUILD_TYPE "Debug")
 set(CMAKE_PREFIX_PATH "${QT_ROOT}")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-
 find_package(Qt5Widgets REQUIRED)
 
 set(HW_HEADER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 set(HW_GUI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/gui)
-include_directories(${HW_HEADER_DIR})
-message("${ARTOOLKIT5_ROOT}")
 
 include_directories(
+        ${HW_HEADER_DIR}
         ${ARTOOLKIT_INCLUDE_PATH}
         ${OSG_INCLUDE_PATH}
         ${COMMON_LIB_PATH}
@@ -40,7 +36,6 @@ include_directories(
         ${QT_INCLUDE_PATH}
         ${QT_INCLUDE_PATH}/QtOpenGL
         ${QT_INCLUDE_PATH}/QtGui
-
 
         ${QT_INCLUDE_PATH}/Qt3DCore
         ${QT_INCLUDE_PATH}/Qt3DExtras
@@ -62,9 +57,7 @@ include_directories(
         ${QT_INCLUDE_PATH}/QtHelp
         ${QT_INCLUDE_PATH}/QtLocation
         ${QT_INCLUDE_PATH}/QtWidgets
-
         ${QT_INCLUDE_PATH}/QColor
-        ${QT_INCLUDE_PATH}/QGLWidget
         ${QT_INCLUDE_PATH}/QDir
         ${QT_INCLUDE_PATH}/QObject
         ${QT_INCLUDE_PATH}/QString
@@ -89,14 +82,6 @@ set(SOURCE_FILES
         ${ARTOOLKIT5_ROOT}/lib/SRC/AR2/selectTemplate.c
         ${ARTOOLKIT5_ROOT}/lib/SRC/AR2/template.c
         ${ARTOOLKIT5_ROOT}/lib/SRC/AR2/tracking.c
-        #/home/hasanov/Downloads/OpenSceneGraph-3.4.0/src/osg/MatrixTransform.cpp
-        #${QT_INCLUDE_PATH}/QtCore/qarraydata.h
-        #        declarative-camera/AR2/coord.c
-        #        declarative-camera/AR2/jpeg.c
-        #        declarative-camera/AR2/selectTemplate.c
-        #        declarative-camera/AR2/template.c
-        #        declarative-camera/AR2/tracking.c
-
         )
 add_executable(lesson1 ${SOURCE_FILES})
 
@@ -114,14 +99,6 @@ target_link_libraries(lesson1
         ${ARTOOLKIT_LIB_PATH}/libEden.a
         ${ARTOOLKIT_LIB_PATH}/libARWrapper.so
 
-        #        ${COMMON_LIB_PATH}/libosg.so
-        #        ${COMMON_LIB_PATH}/libosgDB.so
-        #        ${COMMON_LIB_PATH}/libOpenThreads.so
-        #        ${COMMON_LIB_PATH}/libosgFX.so
-        #        ${COMMON_LIB_PATH}/libosgGA.so
-        #        ${COMMON_LIB_PATH}/libosgViewer.so
-        #        ${COMMON_LIB_PATH}/libosgUtil.so
-
         ${COMMON_LIB_PATH}/libglut.so
         ${COMMON_LIB_PATH}/libGLU.so
         ${COMMON_LIB_PATH}/libGL.so
@@ -135,7 +112,6 @@ target_link_libraries(lesson1
         ${COMMON_LIB_PATH}/libgthread-2.0.so
         ${COMMON_LIB_PATH}/libglib-2.0.so
         ${COMMON_LIB_PATH}/libxml2.so
-
 
         ${OSG_LIB_PATH}/libosg.so
         ${OSG_LIB_PATH}/libosgDB.so
