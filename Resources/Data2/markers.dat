@@ -1,0 +1,50 @@
+# Number of markers
+9
+
+# Entries for each marker. Format is:
+#
+# Name of pattern file (relative to this file)
+# Marker type (SINGLE)
+# Marker width in millimetres (floating point number)
+# Optional tokens:
+#     FILTER [x]   Enable pose estimate filtering for the preceding marker
+#                  x (optional) specifies the cutoff frequency. Default
+#                  value is AR_FILTER_TRANS_MAT_CUTOFF_FREQ_DEFAULT, which
+#                  at time of writing, equals 5.0.
+# A blank line
+
+DataNFT/b1
+NFT
+FILTER 2.0
+
+DataNFT/b2
+NFT
+FILTER 2.0
+
+DataNFT/b3
+NFT
+FILTER 2.0
+
+DataNFT/b4
+NFT
+FILTER 2.0
+
+DataNFT/f1
+NFT
+FILTER 2.0
+
+DataNFT/f4
+NFT
+FILTER 2.0
+
+DataNFT/f6
+NFT
+FILTER 2.0
+
+DataNFT/f7
+NFT
+FILTER 2.0
+
+DataNFT/f9
+NFT
+FILTER 2.0
